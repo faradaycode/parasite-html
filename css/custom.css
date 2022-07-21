@@ -1,50 +1,34 @@
 html,
 body {
   height: 100%;
+  width: 100%;
   overflow: hidden;
 }
 
+body {
+  background-color: #f1f5ff;
+}
+
 .body-wrapper {
+  width: 100%;
   height: 100%;
 }
 
-/* navbar */
-.header-sm {
-  height: 40px !important;
-}
-
-.header-sm>div,
-.header-sm>div>nav,
-.header-sm>div>nav>div {
-  height: inherit;
-}
-
-nav a {
-  color: #FFFFFF !important;
-}
-
 /* override original */
-.uk-navbar-item,
-.uk-navbar-nav>li>a,
-.uk-navbar-toggle {
-  min-height: 0px !important;
-  font-size: .75rem;
-}
-
 /* navbar end */
 
 /* Sidebar Styles */
 .sidebar-nav {
-  position: absolute;
-  top: 40px;
+  position: fixed;
+  top: 0;
   bottom: 0;
   left: 0;
+  z-index: 299;
   margin: auto;
-  height: 50%;
+  height: fit-content;
   box-sizing: border-box;
-  width: 50px !important;
+  width: fit-content;
   overflow: auto;
-  border-radius: 10px;
 }
 
 .sidebar-nav li a i {
@@ -78,22 +62,37 @@ nav a {
   text-decoration: none;
 }
 
-
 /* end sidebar */
 
 /* content */
 #page-content {
   height: 100vh;
-  position: absolute;
-  top: 40px;
-  left: 50px;
-  bottom: 0;
-  right: 0;
   width: 100%;
-  overflow-x: hidden;
+  position: relative;
+  overflow: hidden;
+  scroll-behavior: smooth;
 }
 
-#page-content>section {
+.section-page {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+}
+
+section {
+  height: 100%;
+  width: 100%;
+  transition: transform 0.5s ease-in, opacity 0.5s ease-in;
+}
+
+section>.container-fluid,
+section>.container-fluid>.row {
   height: 100%;
 }
 
@@ -153,23 +152,6 @@ header.masthead>.overlay {
   content: "";
 }
 
-/* /contact field */
-@media (min-width: 992px) {
-  header.masthead>.overlay {
-    padding: 10rem 0;
-  }
-
-  .op-nav {
-    border-color: rgba(34, 34, 34, .05);
-    background-color: transparent;
-  }
-
-  #contact-field {
-    width: 100%;
-    height: 100vh;
-  }
-}
-
 header.masthead {
   background: url("../img/1080.jpg") no-repeat center center scroll;
   -webkit-background-size: cover;
@@ -184,16 +166,6 @@ header.masthead {
   left: 50%;
   right: 50%;
   bottom: 0;
-}
-
-@media (min-width: 992px) {
-  .op-nav .navbar-brand {
-    color: #fff;
-  }
-
-  .navbar-light .navbar-nav .nav-link {
-    color: #fff !important;
-  }
 }
 
 /*circled button*/
@@ -214,14 +186,6 @@ header.masthead {
   -o-transition: all 0.6s ease-out;
   -ms-transition: all 0.6s ease-out;
   transition: all 0.6s ease-out;
-}
-
-@media (min-width: 992px) {
-  .navbar.scrolled {
-    /*background: rgb(68, 68, 68); /* IE */
-    background: #343a40;
-    /* NON-IE */
-  }
 }
 
 /* /scroll nav */
@@ -301,6 +265,29 @@ a.btn:hover {
   animation: neon2 1.5s ease-in-out infinite alternate;
 }
 
+/* media screen laptop and landscape */
+@media (min-width:1025px) {
+
+  /* navbar */
+  .header-sm {
+    height: 40px !important;
+  }
+
+  section {
+    padding-left: 3rem;
+    padding-top: 40px;
+  }
+}
+
+@media (max-width:320px) {
+  .sidebar-nav {
+    display: none;
+  }
+  section {
+    padding-left: 0;
+  }
+}
+
 /* webkit glow */
 @-webkit-keyframes neon2 {
   from {
@@ -335,3 +322,34 @@ a.btn:hover {
 }
 
 /*/neon effect*/
+
+
+/* aboutpage */
+.bg-photo-profile {
+  background: url('../img/tony-stark.jpg') no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.deifr-shape { 
+  width: 100%;
+  height: 100%;
+  background-color: #228DFF;
+  /* border: #fff 1rem solid; */
+  /* margin: 100px auto 0px; */
+  margin: auto; 
+  border-radius: 75% 0 0 0/ 100% 0 0 0;
+  /* border-radius: 50% 0 20% 0 / 100% 0 40% 0; */
+}
+
+.deifr-shape-2 {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    background-color: #007bb5;
+    border-radius: 100% 0 0 0 / 100% 0 0 0;
+}
+
+/* end */
